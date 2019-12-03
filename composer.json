@@ -1,0 +1,22 @@
+{
+    "name": "neko/blade",
+    "description": "neko framework blade template engine",
+    "authors": [
+        {
+            "name": "Reids",
+            "email": "reids@neoblackant.org"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.6.4",
+        "illuminate/view": "v6.6.0",
+        "illuminate/events": "v6.6.0"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Rakit\\Blade\\": "src/"
+        }
+    }
+}
