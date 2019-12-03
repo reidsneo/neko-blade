@@ -16,7 +16,7 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "Rakit\\Blade\\": "src/"
+            "Neko\\Blade\\": "src/"
         }
     }
 }

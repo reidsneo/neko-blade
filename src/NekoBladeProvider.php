@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Provider Class for Rakit Framework
+ * Provider Class for Neko Framework
  * --------------------------------------
- * This class is only for rakit framework
+ * This class is only for Neko framework
  */
 
 namespace Neko\Blade;
@@ -11,7 +11,7 @@ namespace Neko\Blade;
 use Neko\Framework\App;
 use Neko\Framework\Provider;
 
-class RakitBladeProvider extends Provider {
+class NekoBladeProvider extends Provider {
 
 	/**
 	 * Register blade instance on application booting
@@ -27,7 +27,7 @@ class RakitBladeProvider extends Provider {
 			return $blade;
 		});
 
-		$app->config['view.engine'] = new RakitViewEngine($app);
+		$app->config['view.engine'] = new NekoViewEngine($app);
 	}
 
 	/**

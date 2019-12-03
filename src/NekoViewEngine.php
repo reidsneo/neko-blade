@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Rakit Framework View Engine Class
+ * Neko Framework View Engine Class
  * --------------------------------------
- * This class is only for rakit framework
+ * This class is only for Neko framework
  */
 
 namespace Neko\Blade;
@@ -11,7 +11,7 @@ namespace Neko\Blade;
 use Neko\Framework\App;
 use Neko\Framework\View\ViewEngineInterface;
 
-class RakitViewEngine implements ViewEngineInterface {
+class NekoViewEngine implements ViewEngineInterface {
 
 	protected $app;
 
