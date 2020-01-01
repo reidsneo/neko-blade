@@ -11,7 +11,7 @@ namespace Neko\Blade;
 use Neko\Framework\App;
 use Neko\Framework\Provider;
 
-class NekoBladeProvider extends Provider {
+class ViewProvider extends Provider {
 
 	/**
 	 * Register blade instance on application booting
@@ -20,14 +20,12 @@ class NekoBladeProvider extends Provider {
 	{
 		$app = $this->app;
 		$app['blade'] = $app->container->singleton(function($container) use ($app) {
-			$view_paths = [$app->config->get('app.path')."themes/".$app->config->get('user_theme')];
-			$view_cache_path = $app->config->get('app.path')."themes/_cache";
+			$view_paths = [ $app->config['app.path']."themes/".$app->config['user_theme'] ];
+			$view_cache_path = $app->config['app.path']."themes/_cache";
 
 			$blade = new Blade($view_paths, $view_cache_path);
 			return $blade;
 		});
-
-		//$app->config['view.engine'] = new BladeViewEngine($app);
 	}
 
 	/**

@@ -11,7 +11,7 @@ namespace Neko\Blade;
 use Neko\Framework\App;
 use Neko\Framework\View\ViewEngineInterface;
 
-class BladeViewEngine implements ViewEngineInterface {
+class ViewEngine implements ViewEngineInterface {
 
 	protected $app;
 
@@ -31,4 +31,5 @@ class BladeViewEngine implements ViewEngineInterface {
 	{
 		return $this->app->blade->render($file, $data);
 	}
+
 }
