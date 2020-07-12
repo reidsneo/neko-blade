@@ -49,6 +49,11 @@ class Blade extends Factory {
     	return $this->getCompiler()->directive($directive, $compiler);
     }
 
+    public function extend(Closure $compiler)
+    {
+    	$this->getCompiler()->extend($compiler);
+    }
+
     /**
      * Shortcut for getting BladeCompiler
      *
