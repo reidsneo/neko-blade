@@ -20,39 +20,20 @@ class ViewProvider extends Provider {
 	{
 		$app = $this->app;
 		$app['blade'] = $app->container->singleton(function($container) use ($app) {
-			//$theme="";
-			//
-			//if($app->request->route() !== NULL)
-			//{
-			//	foreach ($app->request->route()->getMiddlewares() as $key => $val) {
-			//		if (strpos($val, 'theme') !== FALSE) {
-			//			$theme=explode(":",$val)[1];
-			//		}
-			//	}
-			//}
-//
-            //if($theme!="")
-            //{
-            //    $theme=$theme;
-            //}else{
-            //    $theme=$app->config->get('user_theme');
-			//}
 			
-
-			$plugin_paths = array_map(function($val) use ($app) { return $app->config->get('app.path')."plugins/".str_replace(".","/",$val)."/assets";} , $app->plugin_active);
-			$view_paths = [$app->config->get('app.path')."themes/".$app->config->get('user_theme'),$app->config->get('app.path')."themes/".$app->config->get('admin_theme')];
-			$view_paths = array_merge($plugin_paths,$view_paths);
-			$view_cache_path = $app->config['app.path']."themes/_cache";
-			$blade = new Blade($view_paths, $view_cache_path);
-
-			$blade->directive('uppercase', function($exp) {
-				return "<?php echo strtoupper({$exp});?>";
+			$blade = new Blade();
+			
+			$blade->directive('capitalize', function ($text) {
+				return "<?php echo strtoupper($text) ?>";
 			});
 
+
+			/*
 			$blade->directive('set', function($exp) {
 				list($name, $val) = explode(',', $exp);
 				return "<?php {$name} = {$val}; ?>";
 			});
+			*/
 
 			return $blade;
 		});
@@ -68,6 +49,11 @@ class ViewProvider extends Provider {
 		$app->macro('blade', function($file, array $data = []) use ($app) {
 			return $app->blade->render($file, $data);
 		});
+	}
+
+	public function shutdown()
+	{
+		
 	}
 
 }

@@ -27,9 +27,9 @@ class ViewEngine implements ViewEngineInterface {
 	 * @param array $data
 	 * @return string rendered view
 	 */
-	public function render($file, array $data = [])
+	public function render($file, array $data = [], $returnOnly=false)
 	{
-		return $this->app->blade->render($file, $data);
+		return $this->app->blade->render($file, $data, $returnOnly);
 	}
 
 }
